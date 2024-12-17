@@ -8,15 +8,11 @@
     <!-- Link para o CSS do Bootstrap (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJYyR7pXrZtF6FzK9LRxD8hHLV4I1X6Vzkpbo4e/il1Fkjf01Pb0zqdzHYwX" crossorigin="anonymous">
     
-    <!-- Biblioteca qrcode.js -->
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-
     <!-- Font Awesome (para ícones) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-    <!-- Estilos Personalizados -->
     <style>
-        /* Centraliza o conteúdo da página */
+        /* Estilo geral da página */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f0f2f5;
@@ -52,7 +48,6 @@
             border-radius: 10px;
             border: 2px solid #007bff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s ease;
         }
 
         .input-group input:focus {
@@ -76,10 +71,9 @@
             background-color: #0056b3;
         }
 
-        /* Estilo do QR Code gerado */
         #qrcode {
-            margin-top: 30px;
-            display: none;  /* Inicialmente oculto */
+            margin: 30px auto;
+            display: none; /* Inicialmente oculto */
             border-radius: 15px;
             border: 5px solid #007bff;
             padding: 20px;
@@ -88,7 +82,7 @@
         }
 
         #download-btn {
-            display: none;  /* Inicialmente oculto */
+            display: none; /* Inicialmente oculto */
             margin-top: 30px;
         }
 
@@ -112,18 +106,18 @@
 
         <!-- Input para inserir o texto -->
         <div class="input-group">
-            <input type="text" id="qr-text" class="form-control" placeholder="Digite o texto para gerar o QR Code">
+            <input type="text" id="qr-text" class="form-control" placeholder="Digite o texto ou link">
         </div>
 
         <!-- Botão para gerar o QR Code -->
         <button id="generate-btn" class="btn btn-primary">Gerar QR Code</button>
 
         <!-- Container do QR Code gerado -->
-        <div id="qrcode" class="my-4"></div>
+        <div id="qrcode"></div>
 
-        <!-- Botão de download (inicialmente oculto) -->
+        <!-- Botão de download -->
         <div id="download-btn">
-            <a href="#" download="qrcode.png">
+            <a href="#" download="qrcode.png" id="download-link">
                 <button class="btn btn-success">
                     <i class="fas fa-download"></i> Baixar QR Code
                 </button>
@@ -131,9 +125,42 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <!-- Script do Bootstrap (CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6E14iY06FXkq8tI6PvZlOdj3dFikY5jiwUvbFu8V5zE5se5" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0a38Zb3d3Tr3rA17nE7vW7jlXzzgBfse9cZ4UqMQa/8EjhD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        const input = document.getElementById('qr-text');
+        const generateBtn = document.getElementById('generate-btn');
+        const qrCodeDiv = document.getElementById('qrcode');
+        const downloadBtnDiv = document.getElementById('download-btn');
+        const downloadLink = document.getElementById('download-link');
+
+        generateBtn.addEventListener('click', () => {
+            const text = input.value;
+
+            if (text.trim()) {
+                // Limpa o QR Code anterior
+                qrCodeDiv.innerHTML = '';
+
+                // Gera o QR Code
+                const qrCode = new QRCode(qrCodeDiv, {
+                    text: text,
+                    width: 200,
+                    height: 200
+                });
+
+                qrCodeDiv.style.display = 'block'; // Exibe o QR Code
+                downloadBtnDiv.style.display = 'block'; // Exibe o botão de download
+
+                // Ajusta o botão de download para salvar a imagem
+                setTimeout(() => {
+                    const qrImg = qrCodeDiv.querySelector('img');
+                    if (qrImg) {
+                        downloadLink.href = qrImg.src; // Define o src da imagem como link
+                    }
+                }, 300);
+            } else {
+                alert('Por favor, insira um texto ou link para gerar o QR Code.');
+            }
+        });
+    </script>
 </body>
 </html>
