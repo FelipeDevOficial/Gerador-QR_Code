@@ -125,42 +125,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <script>
-        const input = document.getElementById('qr-text');
-        const generateBtn = document.getElementById('generate-btn');
-        const qrCodeDiv = document.getElementById('qrcode');
-        const downloadBtnDiv = document.getElementById('download-btn');
-        const downloadLink = document.getElementById('download-link');
-
-        generateBtn.addEventListener('click', () => {
-            const text = input.value;
-
-            if (text.trim()) {
-                // Limpa o QR Code anterior
-                qrCodeDiv.innerHTML = '';
-
-                // Gera o QR Code
-                const qrCode = new QRCode(qrCodeDiv, {
-                    text: text,
-                    width: 200,
-                    height: 200
-                });
-
-                qrCodeDiv.style.display = 'block'; // Exibe o QR Code
-                downloadBtnDiv.style.display = 'block'; // Exibe o botão de download
-
-                // Ajusta o botão de download para salvar a imagem
-                setTimeout(() => {
-                    const qrImg = qrCodeDiv.querySelector('img');
-                    if (qrImg) {
-                        downloadLink.href = qrImg.src; // Define o src da imagem como link
-                    }
-                }, 300);
-            } else {
-                alert('Por favor, insira um texto ou link para gerar o QR Code.');
-            }
-        });
-    </script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
