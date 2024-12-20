@@ -1,6 +1,6 @@
 # Gerador de QR Code
 
-Este projeto é uma aplicação web que permite aos usuários gerar códigos QR personalizados a partir de URLs ou textos fornecidos.
+Este projeto é uma aplicação web que permite aos usuários gerar QR-CODEs personalizados a partir de URLs ou textos fornecidos.
 
 Click **[aqui](https://geradorqrcodede.netlify.app/)** para acessar o projeto direto na WEB🌐
 
@@ -10,7 +10,7 @@ https://geradorqrcodede.netlify.app/
 ````
 
 ## Funcionalidades
-
+SSSs
 - Geração de códigos QR a partir de URLs ou textos.
 - Personalização de cores do código QR.
 - Download do código QR gerado em formato de imagem.
