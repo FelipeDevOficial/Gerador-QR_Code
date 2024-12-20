@@ -10,7 +10,7 @@ https://geradorqrcodede.netlify.app/
 ````
 
 ## Funcionalidades
-SSSs
+
 - Geração de códigos QR a partir de URLs ou textos.
 - Personalização de cores do código QR.
 - Download do código QR gerado em formato de imagem.
