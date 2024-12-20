@@ -1,11 +1,14 @@
-
-Aqui está a versão revisada do README.md com a seção "Como Utilizar" substituída por uma explicação mais intuitiva:
-
-markdown
-Copiar código
 # Gerador de QR Code
 
 Este projeto é uma aplicação web que permite aos usuários gerar códigos QR personalizados a partir de URLs ou textos fornecidos.
+
+Click **[aqui](https://geradorqrcodede.netlify.app/)** para acessar o projeto direto na WEB🌐
+
+**Caso não consiga clickar, copie e cole o link abaixo na barra de pesquia do navegador:**
+```plaintext
+https://geradorqrcodede.netlify.app/
+````
+
 
 ## Funcionalidades
 
@@ -27,11 +30,3 @@ Este projeto é uma aplicação web que permite aos usuários gerar códigos QR 
 4. **Gere e baixe**: Clique em "Gerar QR Code" para visualizar o resultado e, se desejar, baixe o código em formato de imagem.
 
 O processo é rápido, simples e não requer instalação de software adicional.
-
-## Projeto funcionando na Web
-Click **[aqui](https://geradorqrcodede.netlify.app/)**
-
-**Caso o link não funcione, copie e cole o link abaixo na barra de pesquia do navegador:**
-```plaintext
-https://geradorqrcodede.netlify.app/
-````
