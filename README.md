@@ -9,7 +9,6 @@ Click **[aqui](https://geradorqrcodede.netlify.app/)** para acessar o projeto di
 https://geradorqrcodede.netlify.app/
 ````
 
-
 ## Funcionalidades
 
 - Geração de códigos QR a partir de URLs ou textos.
